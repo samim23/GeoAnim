@@ -1,5 +1,5 @@
 # GeoAnim
-GeoAnim let´s you animate streetview and share your movies.
+Animate streetview and share your movies.
 
 Check out the [demo here](https://fatpit.com/p/geoanim/) 
 
