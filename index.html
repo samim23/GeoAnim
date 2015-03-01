@@ -1,0 +1,79 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GeoAnim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.02, maximum-scale=1.02">
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" media="all" rel="stylesheet" />
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/geoanim.js"></script>
+  </head>
+  <body>
+    <div id="loading"><img src="img/loading.gif" alt="" height="60" width="60"></div>
+    <div id="panorama"></div>
+    <div id="animation_info"></div>
+
+    <div id="container">
+      <div onclick="showAbout()" class="btn btn_wide btn_active" id="about" />About</div><div onclick="showBrowse()" class="btn btn_wide" id="browse" />Browse</div><div onclick="showControl()" class="btn btn_wide" id="showControl" />Create</div>        
+    </div>
+
+    <div id="controls">
+      <div id="tab_about">
+        <span id="logo">GeoAnim</span> 
+        - Animate streetview and share your clips 
+        <span onclick="ShareTwitter()" class="social_share"><img src="img/icon-twitter.png" alt="" width="20" height="20" /></span> 
+        <span onclick="ShareEmail()" class="social_share"><img src="img/icon-email.png" alt="" width="20" height="20" /></span> 
+        <span onclick="ShareFacebook()" class="social_share"><img src="img/icon-facebook.png" alt="" width="20" height="20" /></span><hr/>
+        <small>Made by <a href="http://twitter.com/samim">Samim</a>. Get it on <a href="https://github.com/samim23/GeoAnim/">GitHub</a>.</small>
+      </div> 
+      <div id="tab_browse">
+        <div id="browse_scroll"></div>
+        <div id="continuousplay" class="btn btn_wide btn_dark btn_dark_active" onclick="continuousClips()">Auto Load Random Animation</div>
+      </div>
+      <div id="tab_control">
+        <div id="map-canvas"></div>
+        <div class="label rec_hide">Animation</div>
+        <div onclick="playClip()" class="btn btn_wide rec_hide btn_dark" id="playanim" />Stop</div>
+        <div onclick="loopClips()" class="btn btn_wide rec_hide btn_dark" id="loopClip" />Loop On</div>
+        <div onclick="saveClips()" class="btn btn_wide rec_hide btn_dark" id="saveClip" />Save</div>
+        <div id="save_settings" class="rec_hide">
+            <div id="save_message">Animation Saved!</div>
+            <div id="save_input">
+              <input type="input" id="save_animname" placeholder="Animation Name" maxlength="90" style="width:100%;">
+              <input type="input" id="save_username" placeholder="User Name" maxlength="25" style="width:65%;">
+              <input type="submit" id="save_button" value="Save Anim " onclick="saveAnim()">
+            </div>
+        </div>
+        <div style="margin-top:0px;" class="label rec_hide">Animation Clips</div>
+        <div onclick="recordAnimation()" class="btn btn_wide btn_red" id="recordstart" />Record</div>
+        <div onclick="deleteClip()" class="btn btn_wide rec_hide btn_dark" id="deleteClip" />Delete</div>
+        <div onclick="tweakClip()" class="btn btn_wide rec_hide btn_dark" id="tweakClip" />Tweak</div>
+        <div id="clip_settings" class="rec_hide">
+            <div class="label labelsmall">Smooth</div>
+            <input style="width:60%;" type="range" name="smooth" id="smooth" min="10" max="500" value="200">
+            <div id="smooth_val" class="label labelsmall">2.2</div><br/>
+            <!-- <input type="input" name="medialink" placeholder="Youtube Link" style="width:70%;">
+            <input type="submit" name="medialinksave" value="Save URL" min="0" max="10"> -->
+        </div>
+        <div id="clips_container" class="rec_hide">
+          <div class=' clip'>1</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60207317-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html> 
